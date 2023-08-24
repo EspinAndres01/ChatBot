@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOODCHAT</title>
+    <link rel="stylesheet" href="css/estilo_principal.css" type="text/css">
+    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="parent" id="padre">
+        <div class="cabecera">
+            <div class="logo">
+                <a href="chat.html"><img src="img/logo.jpg" alt="logo"></a>
+            </div>
+        </div>
+        <div class="navbar" id="menu">
+            <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+            <ul>
+                <li><a href='index.html'>Inicio</a></li>
+                <li><a class='dropdown-arrow' href='#'>Categorias</a>
+                    <ul class='sub-menus'>
+                        <li><a href='#mostrar' id="comp_casa">Postre</a></li>
+                        <li><a href='#mostrar' id="comp_depar">Pollo y Carne</a></li>
+                        <li><a href='#mostrar' id="comp_terreno">Sopas</a></li>
+                    </ul>
+                </li>
+                <li><a class='dropdown-arrow' href='#'>Dia a Dia</a>
+                    <ul class='sub-menus'>
+                        <li><a href='#mostrar' id="arriendo_casa">Desayuno</a></li>
+                        <li><a href='#mostrar' id="arriendo_depar">Almuerzo</a></li>
+                        <li><a href='#mostrar' id="arriendo_terreno">Cenas</a></li>
+                    </ul>
+                <li><a href='#mostrar' id="opcion_quienes">Quienes Somos</a></li>
+                <li><a href='#mensaje' id="opc_contacto">Contactos</a></li>
+            </ul>
+            <script src="js/enlaces.js"></script>
+        </div>
+    
+            <div class="contenido">
+                <div class="galeria" id="galeria_in">
+                    <section>
+                        <img src="img/receta1.jpg" alt="casa1">
+                        <img src="img/receta2.jpg" alt="casa2">
+                        <img src="img/receta3.jpg" alt="casa3">
+                        <img src="img/receta4.jpg" alt="casa4">
+                        <img src="img/receta5.jpg" alt="casa5">
+                        <img src="img/receta6.jpg" alt="casa6">
+                    </section>
+                </div>
+
+                <div class="subContenido" id="sub_conte">
+                    <div class="casas" id="mostrar">
+                        <div class="testimonios">
+                            <h2>Bienvenidos</h2>
+                            <div class="testimonio">
+                                <p>"Los agentes de Home Token fueron extremadamente profesionales y me brindaron un
+                                    excelente servicio. Gracias a su asesoramiento experto, pude encontrar la casa de mis
+                                    sueños en poco tiempo. ¡Recomendaría a Home Token a cualquier persona que esté buscando
+                                    una experiencia inmobiliaria sin problemas!" - Ana G.</p>
+                                <img src="img/perfil_1.jpg" alt="">
+                            </div>
+    
+                            <div class="testimonio">
+                                <p>"Estoy muy satisfecho con el servicio de Home Token. No solo encontraron rápidamente un
+                                    inquilino para mi propiedad de inversión, sino que también se encargaron de todos los
+                                    detalles del proceso de alquiler. Son muy confiables y eficientes. Sin duda, seguiré
+                                    utilizando sus servicios en el futuro". - Carlos M.</p>
+                                <img src="img/perfil_2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mensajes" id="mensaje">
+                        <div class="btn_contacto">
+                            <button class="botones" id="btn_visita"><img src="img/calendario.svg"
+                                    alt=""><span>Visita</span></button>
+                            <button class="botones" id="btn_contacto"><img src="img/mensajes.svg"
+                                    alt=""><span>Contactanos</span></button>
+                            <a href="https://wa.link/96y490" target="_blank"><button class="botones" id="btn_whatsapp"><img
+                                        src="img/whatsapp.svg" alt=""><span>Whatsapp</span></button></a>
+                        </div>
+                        <div class="form_contacto" id="ver_form">
+    
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+    
+            <div class="pie">
+                <div class="redes_sociales">
+                    <h4>Redes Sociales:</h4>
+                    <div class="facebook">
+                        <a href="https://www.facebook.com/tu_pagina_de_facebook" target="_blank"><img src="img/face.jpg"
+                                alt="facebook"></a>
+                    </div>
+                    <div class="instagram">
+                        <a href="https://www.instagram.com/tu_cuenta_de_instagram" target="_blank"><img
+                                src="img/insta.jpg" alt="instagram"></a>
+                    </div>
+                    <div class="whatsapp">
+                        <a href="https://wa.me/593996154219" target="_blank"><img src="img/wasa.jpg"
+                                alt="whatsapp"></a>
+                    </div>
+                </div>
+    
+    
+                <div class="informacion_contacto">
+                    <h3>Información de contacto:</h3>
+                    <p>Dirección: Av. Genral Rumiñahui, Sangolqui, Ecuador</p>
+                    <p>Teléfono: +123456789</p>
+                    <p>Correo electrónico: info@hometoken.com</p>
+                </div>
+    
+                <div class="politicas">
+                    <h3>Políticas:</h3>
+                    <ul>
+                        <li><a href="#mostrar" id="politicas">Política de privacidad</a></li>
+                        <br>
+                        <li><a href="#mostrar" id="terminos">Términos y condiciones</a></li>
+                        <br>
+                        <li><a href="#mostrar" id="cookies">Política de cookies</a></li>
+                    </ul>
+                </div>
+    
+                <div class="mapa_sitio">
+                    <h3>Mapa del sitio</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.758091550921!2d-78.44509422535837!3d-0.3148209996820831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5bd12538eb13b%3A0x907c61f1abbe45ab!2sUniversidad%20de%20las%20Fuerzas%20Armadas%20ESPE!5e0!3m2!1ses-419!2sec!4v1688778772850!5m2!1ses-419!2sec"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+    
+                <div class="derechos">
+                    <p>Todos los derechos reservados &copy; 2023 Home Token</p>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <script>
+        function sendMessage() {
+            let input = document.getElementById('userInput').value;
+            let chatbox = document.getElementById('chatbox');
+
+            chatbox.innerHTML += "USER: " + input + "<br>";
+            fetch('/send_message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: input
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatbox.innerHTML += "FOODCHAT: " + data.response + "<br>";
+            });
+            document.getElementById('userInput').value = '';
+        }
+    </script>
+</body>
+</html>
