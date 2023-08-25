@@ -16,7 +16,7 @@ function sendMessage() {
     const userMessage = $("#userInput").val();
     $("#messages").append("<p>Tú: " + userMessage + "</p>");
     
-    $.post("/get", {msg: userMessage}, function(data) {
+    $.post("/", {msg: userMessage}, function(data) {
         $("#messages").append("<p>Bot: " + data.response + "</p>");
     }).fail(function() {
         $("#messages").append("<p>Bot: Lo siento, no pude procesar tu mensaje.</p>");

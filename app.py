@@ -4,16 +4,6 @@ import datetime
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-
-@app.route("/", methods=["GET", "POST"])
-def index():
-    if request.method == "POST":
-        user_input = request.form["user_input"]
-        response = generar_respuesta(user_input, recetas_collection, conversaciones_collection)
-        guardar_conversacion(user_input, response, conversaciones_collection)
-        return render_template("chat.html", response=response)
-    return render_template("chat.html")
-
 # Conexión a la base de datos MongoDB
 def connect_to_mongodb():
     client = MongoClient("mongodb+srv://kibo:kibo@cluster0.ja6e1x6.mongodb.net/?retryWrites=true&w=majority")
@@ -21,6 +11,17 @@ def connect_to_mongodb():
     recetas_collection = db["recetas"]
     conversaciones_collection = db["conversaciones"]
     return recetas_collection, conversaciones_collection
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if request.method == "POST":
+        user_input = request.form["msg"]
+        response = generar_respuesta(user_input, recetas_collection, conversaciones_collection)
+        guardar_conversacion(user_input, response, conversaciones_collection)
+        return render_template("chat.html", response=response)
+    return render_template("chat.html")
+
+
 
 # Configura tu clave de API de OpenAI
 openai.api_key = "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"
