@@ -7,29 +7,22 @@ def connect_to_mongodb():
     recetas_collection = db["recetas"]
     return recetas_collection
 
-# Funciones de interacción con el chatbot
-def chatbot():
-    print("¡Hola! Soy el FOODCHAT de recetas. ¿En qué puedo ayudarte?")
+# Función modificada de interacción con el chatbot
+def chatbot(user_input):
+    user_input = user_input.lower()
     
     recetas_collection = connect_to_mongodb()
     
-    while True:
-        user_input = input("USER: ").lower()
-        
-        if user_input == "salir":
-            print("FOODCHAT: Hasta luego. ¡Vuelve pronto!")
-            break
-        elif "recetas" in user_input:
-            mostrar_recetas_disponibles(recetas_collection)
-        else:
-            response = generar_respuesta(user_input, recetas_collection)
-            print("FOODCHAT:", response)
+    if "recetas" in user_input:
+        return mostrar_recetas_disponibles(recetas_collection)
+    else:
+        response = generar_respuesta(user_input, recetas_collection)
+        return response
 
 def mostrar_recetas_disponibles(recetas_collection):
     recetas = recetas_collection.find()
-    print("Recetas disponibles:")
-    for receta in recetas:
-        print("-", receta["titulo"])
+    titulos = [receta["titulo"] for receta in recetas]
+    return "Recetas disponibles: " + ", ".join(titulos)
 
 def generar_respuesta(input_text, recetas_collection):
     recetas = recetas_collection.find()

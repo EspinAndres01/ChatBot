@@ -264,6 +264,8 @@ iframe {
     grid-template-areas: 'casas casas casas casas casas  mensaje'; 
 }
 
+
+
 .contenido .subContenido .casas {
     grid-area: casas;
     display: flex;
