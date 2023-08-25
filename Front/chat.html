@@ -6,6 +6,72 @@
     <title>FOODCHAT</title>
     <link rel="stylesheet" href="css/estilo_principal.css" type="text/css">
     <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon">
+    <style>
+    .imagen {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.descripcion {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.imagen img {
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+
+.mensajes {
+    position: fixed;       /* Posición fija en el viewport */
+    bottom: 10px;          /* 10px desde la parte inferior */
+    right: 10px;           /* 10px desde la parte derecha */
+    z-index: 1000;         /* Asegurar que esté por encima de otros elementos */
+    background-color: #fff;  /* Fondo blanco para el contenedor de mensajes */
+    padding: 10px;         /* Espaciado alrededor de los botones */
+    border-radius: 10px;   /* Bordes redondeados para el contenedor */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+}
+
+.btn_contacto {
+    display: flex;        /* Alinear botones en una fila */
+    gap: 10px;            /* Espacio entre botones */
+}
+
+.botones {
+    display: flex;        /* Para alinear el ícono y el texto horizontalmente */
+    align-items: center;  /* Centrar verticalmente el ícono y el texto */
+    gap: 5px;             /* Espacio entre el ícono y el texto */
+    padding: 5px 10px;    /* Espaciado alrededor del botón */
+    border-radius: 5px;   /* Bordes redondeados para el botón */
+    border: none;         /* Quitar el borde por defecto del botón */
+    background-color: #007BFF; /* Color de fondo azul (puedes cambiarlo) */
+    color: #fff;          /* Texto blanco */
+    cursor: pointer;      /* Cambiar el cursor a una mano al pasar sobre el botón */
+}
+
+.botones img {
+    width: 20px;          /* Ancho del ícono */
+    height: 20px;         /* Alto del ícono */
+}
+
+/* Estilo para el botón al pasar el ratón por encima */
+.botones:hover {
+    background-color: #0056b3; /* Color de fondo azul oscuro al pasar el ratón */
+}
+
+
+    </style>
 </head>
 <body>
     <div class="parent" id="padre">
@@ -54,30 +120,28 @@
                         <div class="testimonios">
                             <h2>Bienvenidos</h2>
                             <div class="testimonio">
-                                <p>"Los agentes de Home Token fueron extremadamente profesionales y me brindaron un
-                                    excelente servicio. Gracias a su asesoramiento experto, pude encontrar la casa de mis
-                                    sueños en poco tiempo. ¡Recomendaría a Home Token a cualquier persona que esté buscando
-                                    una experiencia inmobiliaria sin problemas!" - Ana G.</p>
-                                <img src="img/perfil_1.jpg" alt="">
+                                <div class="imagen" onclick="mostrarDescripcion('descripcion1')">
+                                    <img src="img/receta2.jpg" alt="Descripción breve">
+                                    <div class="descripcion" id="descripcion1">
+                                        Aquí va una descripción detallada de la imagen 1.
+                                    </div>
+                                </div>
                             </div>
     
                             <div class="testimonio">
-                                <p>"Estoy muy satisfecho con el servicio de Home Token. No solo encontraron rápidamente un
-                                    inquilino para mi propiedad de inversión, sino que también se encargaron de todos los
-                                    detalles del proceso de alquiler. Son muy confiables y eficientes. Sin duda, seguiré
-                                    utilizando sus servicios en el futuro". - Carlos M.</p>
-                                <img src="img/perfil_2.jpg" alt="">
+                                <div class="imagen" onclick="mostrarDescripcion('descripcion2')">
+                                    <img src="img/receta3.jpg" alt="Descripción breve">
+                                    <div class="descripcion" id="descripcion2">
+                                        Aquí va una descripción detallada de la imagen 2.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="mensajes" id="mensaje">
                         <div class="btn_contacto">
-                            <button class="botones" id="btn_visita"><img src="img/calendario.svg"
-                                    alt=""><span>Visita</span></button>
-                            <button class="botones" id="btn_contacto"><img src="img/mensajes.svg"
-                                    alt=""><span>Contactanos</span></button>
-                            <a href="https://wa.link/96y490" target="_blank"><button class="botones" id="btn_whatsapp"><img
-                                        src="img/whatsapp.svg" alt=""><span>Whatsapp</span></button></a>
+                            <button class="botones" id="btn_visita"><img src="img/chatBot.jpg"
+                                    alt=""><span>Asistente</span></button>
                         </div>
                         <div class="form_contacto" id="ver_form">
     
@@ -139,6 +203,21 @@
     </div>
 
     <script>
+        function mostrarDescripcion(id) {
+    let descripcion = document.getElementById(id);
+    if (descripcion.style.display === "block") {
+        descripcion.style.display = "none";
+    } else {
+
+        let todasLasDescripciones = document.querySelectorAll('.descripcion');
+        todasLasDescripciones.forEach((desc) => desc.style.display = 'none');
+
+        descripcion.style.display = "block";
+    }
+}
+
+
+
         function sendMessage() {
             let input = document.getElementById('userInput').value;
             let chatbox = document.getElementById('chatbox');
