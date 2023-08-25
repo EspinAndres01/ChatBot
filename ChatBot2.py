@@ -14,25 +14,19 @@ def connect_to_mongodb():
 openai.api_key = "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"
 
 # Funciones de interacción con el chatbot
-def chatbot():
-    print("¡Hola! Soy el FOODCHAT de recetas. ¿En qué puedo ayudarte?")
-    
+def chatbot(msg):
     recetas_collection, conversaciones_collection = connect_to_mongodb()
-    
-    while True:
-        user_input = input("USER: ").lower()
-        
-        if user_input == "salir":
-            print("FOODCHAT: Hasta luego. ¡Vuelve pronto!")
-            break
-        elif "recetas" in user_input:
-            mostrar_recetas_disponibles(recetas_collection)
-        else:
-            response = generar_respuesta(user_input, recetas_collection, conversaciones_collection)
-            print("FOODCHAT:", response)
 
-            # Guardar la conversación y respuesta en la base de datos
-            guardar_conversacion(user_input, response, conversaciones_collection)
+    if "recetas" in msg:
+        return mostrar_recetas_disponibles(recetas_collection)
+    else:
+        response = generar_respuesta(msg, recetas_collection, conversaciones_collection)
+        
+        # Guardar la conversación y respuesta en la base de datos
+        guardar_conversacion(msg, response, conversaciones_collection)
+        
+        return response
+
 
 def guardar_conversacion(input_text, respuesta, conversaciones_collection):
     timestamp = datetime.datetime.now()
@@ -47,9 +41,11 @@ def guardar_conversacion(input_text, respuesta, conversaciones_collection):
 
 def mostrar_recetas_disponibles(recetas_collection):
     recetas = recetas_collection.find()
-    print("Recetas disponibles:")
+    recetas_lista = ["Recetas disponibles:"]
     for receta in recetas:
-        print("-", receta["titulo"])
+        recetas_lista.append(receta["titulo"])
+    return "\n".join(recetas_lista)
+
         
 def generar_respuesta(input_text, recetas_collection, conversaciones_collection):
     respuesta_guardada = buscar_respuesta_guardada(input_text, conversaciones_collection)
