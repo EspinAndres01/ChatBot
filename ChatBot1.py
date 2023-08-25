@@ -1,8 +1,11 @@
+import os
 from pymongo import MongoClient
 
 # Conexión a la base de datos MongoDB
+
 def connect_to_mongodb():
-    client = MongoClient("mongodb+srv://kibo:kibo@cluster0.ja6e1x6.mongodb.net/?retryWrites=true&w=majority")
+    mongo_uri = os.environ.get("mongodb+srv://kibo:kibo@cluster0.ja6e1x6.mongodb.net/?retryWrites=true&w=majority")
+    client = MongoClient(mongo_uri)
     db = client["FOODCHAT"]
     recetas_collection = db["recetas"]
     return recetas_collection
@@ -50,4 +53,7 @@ def generar_respuesta(input_text, recetas_collection):
     return respuesta
 
 if __name__ == "__main__":
-    chatbot()
+    user_input = input("Por favor, ingresa tu pregunta: ")
+    respuesta = chatbot(user_input)
+    print(respuesta)
+
