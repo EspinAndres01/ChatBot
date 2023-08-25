@@ -22,4 +22,5 @@ function sendMessage() {
     });
 
     $("#user_input").val('');
+    document.getElementById('userInput').value = '';
 }

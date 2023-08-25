@@ -36,44 +36,87 @@
 }
 
 .mensajes {
-    position: fixed;       /* Posición fija en el viewport */
-    bottom: 10px;          /* 10px desde la parte inferior */
-    right: 10px;           /* 10px desde la parte derecha */
-    z-index: 1000;         /* Asegurar que esté por encima de otros elementos */
-    background-color: #fff;  /* Fondo blanco para el contenedor de mensajes */
-    padding: 10px;         /* Espaciado alrededor de los botones */
-    border-radius: 10px;   /* Bordes redondeados para el contenedor */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    border: 1px solid #e6e6e6;
+    border-radius: 20px;
+    background-color: #f8f8f8;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
 .btn_contacto {
-    display: flex;        /* Alinear botones en una fila */
-    gap: 10px;            /* Espacio entre botones */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #25d366; /* Color principal de WhatsApp */
+    border-bottom: 1px solid #e6e6e6;
 }
 
 .botones {
-    display: flex;        /* Para alinear el ícono y el texto horizontalmente */
-    align-items: center;  /* Centrar verticalmente el ícono y el texto */
-    gap: 5px;             /* Espacio entre el ícono y el texto */
-    padding: 5px 10px;    /* Espaciado alrededor del botón */
-    border-radius: 5px;   /* Bordes redondeados para el botón */
-    border: none;         /* Quitar el borde por defecto del botón */
-    background-color: #007BFF; /* Color de fondo azul (puedes cambiarlo) */
-    color: #fff;          /* Texto blanco */
-    cursor: pointer;      /* Cambiar el cursor a una mano al pasar sobre el botón */
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .botones img {
-    width: 20px;          /* Ancho del ícono */
-    height: 20px;         /* Alto del ícono */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
-.botones:hover {
-    background-color: #0056b3; /* Color de fondo azul oscuro al pasar el ratón */
+#chatbox {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
 }
 
+#messages p {
+    max-width: 80%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 15px;
+    background-color: #e6e6e6;
+    position: relative;
+    clear: both;
+}
 
-    </style>
+#userInput {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin: 5px;
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: #25d366;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo para los mensajes del bot */
+#messages .bot {
+    background-color: #e6e6e6;
+    float: left;
+}
+
+/* Estilo para los mensajes del usuario */
+#messages .user {
+    background-color: #dcf8c6;
+    float: right;
+}    
+</style>
 </head>
 <body>
     <div class="parent" id="padre">
@@ -125,7 +168,7 @@
                                 <div class="imagen" onclick="mostrarDescripcion('descripcion1')">
                                     <img src="img/receta2.jpg" alt="Descripción breve">
                                     <div class="descripcion" id="descripcion1">
-                                        Aquí va una descripción detallada de la imagen 1.
+                                        La combinación de ingredientes frescos de temporada, con técnicas culinarias de vanguardia, crea una experiencia gastronómica que es difícil de superar. Es evidente que cada plato se ha preparado con pasión y precisión.
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +177,7 @@
                                 <div class="imagen" onclick="mostrarDescripcion('descripcion2')">
                                     <img src="img/receta3.jpg" alt="Descripción breve">
                                     <div class="descripcion" id="descripcion2">
-                                        Aquí va una descripción detallada de la imagen 2.
+                                        Desde el momento en que uno se sienta hasta que se va, la experiencia es simplemente inolvidable. La mezcla de sabores tradicionales con toques modernos hace que cada plato sea una revelación. Verdaderamente, una joya culinaria.
                                     </div>
                                 </div>
                             </div>
