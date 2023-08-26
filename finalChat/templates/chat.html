@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Chatbot</title>
+</head>
+<body>
+    <h1>Food Chatbot</h1>
+    <div id="chat-container">
+        <div id="chat-log"></div>
+        <form id="user-input-form">
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí" autocomplete="off">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#user-input-form").submit(function(event) {
+                event.preventDefault();
+                var userInput = $("#user-input").val();
+                $("#chat-log").append('<div class="user-message">' + userInput + '</div>');
+                $("#user-input").val("");
+
+                $.ajax({
+                    type: "POST",
+                    url: "/chat",
+                    data: { user_input: userInput },
+                    success: function(data) {
+                        var response = data.response;
+                        $("#chat-log").append('<div class="bot-message">' + response + '</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
